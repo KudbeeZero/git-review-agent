@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Git Review Agent - Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Git Review Agent</h1>
+<p class="subtitle">Dashboard &bull; <span id="repoPath">-</span></p>
+</header>
+<main>
+<section class="toolbar">
+<label>Load review file:
+<input type="file" id="reviewFile" accept=".json">
+</label>
+<button id="btnRefresh">Refresh</button>
+<a href="#" id="btnOpenRepo" target="_blank" style="margin-left:auto">Open repo</a>
+</section>
+
+<section class="metrics">
+<div class="card"><div class="value" id="metricTotal">-</div><div class="label">Total Actions</div></div>
+<div class="card"><div class="value" id="metricReviewed">-</div><div class="label">Reviewed</div></div>
+<div class="card"><div class="value" id="metricPassed">-</div><div class="label">Passed</div></div>
+<div class="card"><div class="value" id="metricFailed">-</div><div class="label">Failed</div></div>
+<div class="card"><div class="value" id="metricGenerated">-</div><div class="label">Generated At</div></div>
+</section>
+
+<section class="results">
+<h2>Reviews</h2>
+<div class="filters">
+<label><input type="checkbox" id="fShowPassed"> Show passed</label>
+<select id="fSeverity">
+<option value="">All severities</option>
+<option value="Error">Error</option>
+<option value="Warning">Warning</option>
+<option value="Info">Info</option>
+</select>
+<input type="text" id="fSearch" placeholder="Search author, subject...">
+</div>
+<table id="tblReviews">
+<thead>
+<tr><th>Hash</th><th>Author</th><th>Date</th><th>Subject</th><th>Severity</th><th>Issues</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
